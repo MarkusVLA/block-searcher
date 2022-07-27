@@ -1,0 +1,10 @@
+functools
+anvil-parser
+pandas
+plotly.express
+mayavi
+numpy
+csv
+os
+numba
+multiprocessing
