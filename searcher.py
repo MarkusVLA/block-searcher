@@ -124,17 +124,20 @@ if __name__ == "__main__":
     world_directory = input("Full path to region files:")
 
     initialize_csv()
-    print("Done initalizing output.")
-    
+    print("\nDone initalizing output.")
+    print("Found {} files in {}".format(len(os.listdir(world_directory)), world_directory))
+
     for region_file in os.listdir(world_directory):
         region_id = split_region_name(region_file)
         regions.append(region_id)
 
     #Create a process pool to devide tasks among cpu threads.
+    print("Creating process pool.")
     p = mp.Pool()
     p.map(partial(main, id, world_directory ), regions)
 
     p.close()
+    print("Starting search.")
     p.join()
     
         
